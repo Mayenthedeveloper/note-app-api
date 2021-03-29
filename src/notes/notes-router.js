@@ -97,10 +97,12 @@ noteRouter
         },
       });
     }
+    console.log("OK");
 
     NotesService.updateNote(req.app.get("db"), req.params.note_id, noteToUpdate)
       .then((numRowsAffected) => {
-        res.status(204).end();
+        console.log(numRowsAffected);
+        res.status(200).end();
       })
       .catch(next);
   });
