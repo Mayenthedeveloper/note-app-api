@@ -137,7 +137,7 @@ describe("Notes Endpoints", () => {
     });
 
     context(`Given an XSS attack note`, () => {
-      const { maliciousNote, expectedNote } = fixtures.makeMaliciousBookmark();
+      const { maliciousNote, expectedNote } = fixtures.makeMaliciousNote();
 
       beforeEach("insert malicious note", () => {
         return db.into("notes").insert([maliciousNote]);
@@ -349,7 +349,7 @@ describe("Notes Endpoints", () => {
           .patch(`/api/notes/${idToUpdate}`)
           .set("Authorization", `Bearer ${process.env.API_TOKEN}`)
           .send({
-            ...updateBookmark,
+            ...updateNote,
             fieldToIgnore: "should not be in GET response",
           })
           .expect(204)

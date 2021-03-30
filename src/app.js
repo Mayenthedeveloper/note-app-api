@@ -7,6 +7,7 @@ const { NODE_ENV } = require("./config");
 const validateBearerToken = require("./validate-bearer-token");
 const errorHandler = require("./error-handler");
 const noteRouter = require("./notes/notes-router");
+const notesTodoRouter = require("./notesTodo/notesTodo-router");
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use(helmet());
 // app.use(validateBearerToken)
 
 app.use("/api/notes", noteRouter);
+app.use("/api/todo", notesTodoRouter);
 
 app.get("/", (req, res) => {
   res.send("Hello, world!");
