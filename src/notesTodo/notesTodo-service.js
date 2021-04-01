@@ -24,7 +24,7 @@ const NotesTodoService = {
         return rows[0];
       });
   },
-  deleteNote(knex, id) {
+  deleteTodo(knex, id) {
     return knex("notestodo").where({ id }).delete();
   },
   updateNote(knex, id, newNoteFields) {

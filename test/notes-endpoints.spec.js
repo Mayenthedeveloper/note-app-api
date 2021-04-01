@@ -2,16 +2,19 @@ const knex = require("knex");
 const fixtures = require("./notes-fixtures");
 const app = require("../src/app");
 
+console.log(process.env.TEST_DB_URL);
 describe("Notes Endpoints", () => {
-  let db;
+  let db = "test";
 
   before("make knex instance", () => {
     db = knex({
       client: "pg",
       connection: process.env.TEST_DB_URL,
     });
-    app.set("db", db);
+    // app.set("db", db);
   });
+
+  // console.log(db);
 
   after("disconnect from db", () => db.destroy());
 
@@ -19,14 +22,14 @@ describe("Notes Endpoints", () => {
 
   afterEach("cleanup", () => db("notes").truncate());
 
-  describe(`Unauthorized requests`, () => {
+  describe.only(`Unauthorized requests`, () => {
     const testNotes = fixtures.makeNotesArray();
 
     beforeEach("insert notes", () => {
       return db.into("notes").insert(testNotes);
     });
 
-    it(`responds with 401 Unauthorized for GET /api/notes`, () => {
+    it.only(`responds with 401 Unauthorized for GET /api/notes`, () => {
       return supertest(app)
         .get("/api/notes")
         .expect(401, { error: "Unauthorized request" });

@@ -18,9 +18,10 @@ noteRouter
   .route("/")
 
   .get((req, res, next) => {
+    console.log(req.app.get("db"), "bddhdh-------");
     NotesService.getAllNotes(req.app.get("db"))
       .then((notes) => {
-        console.log("All notes");
+        // console.log("All notes");
         res.json(notes.map(serializeNote));
       })
       .catch(next);
