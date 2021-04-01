@@ -40,7 +40,7 @@ notesTodoRouter
         res
           .status(201)
           .location(path.posix.join(req.originalUrl, `/${todo.id}`))
-          .json(serializeTodo(todo));
+          .json(serializeNote(todo));
       })
       .catch(next);
   });
@@ -53,7 +53,7 @@ notesTodoRouter
         error: { message: `Invalid id` },
       });
     }
-    TodoService.getByIdAndTitle(req.app.get("db"), req.params.todo_id)
+    NotesTodoService.getById(req.app.get("db"), req.params.todo_id)
       .then((todo) => {
         if (!todo) {
           return res.status(404).json({
@@ -69,7 +69,7 @@ notesTodoRouter
     res.json(serializeTodo(res.todo));
   })
   .delete((req, res, next) => {
-    TodoService.deleteTodo(req.app.get("db"), req.params.todo_id)
+    NotesTodoService.deleteTodo(req.app.get("db"), req.params.todo_id)
       .then((numRowsAffected) => {
         res.status(204).end();
       })
@@ -78,7 +78,6 @@ notesTodoRouter
   .patch(jsonParser, (req, res, next) => {
     const { title, completed, todo } = req.body;
     const todoToUpdate = { title, completed, todo };
-
     const numberOfValues = Object.values(todoToUpdate).filter(Boolean).length;
     if (numberOfValues === 0)
       return res.status(400).json({
@@ -87,7 +86,11 @@ notesTodoRouter
         },
       });
 
-    TodoService.updateTodo(req.app.get("db"), req.params.todo_id, todoToUpdate)
+    NotesTodoService.updateTodo(
+      req.app.get("db"),
+      req.params.todo_id,
+      todoToUpdate
+    )
       .then((updatedTodo) => {
         res.status(200).json(serializeTodo(updatedTodo[0]));
       })

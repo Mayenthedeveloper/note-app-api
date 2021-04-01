@@ -18,7 +18,6 @@ noteRouter
   .route("/")
 
   .get((req, res, next) => {
-    console.log(req.app.get("db"), "bddhdh-------");
     NotesService.getAllNotes(req.app.get("db"))
       .then((notes) => {
         // console.log("All notes");
@@ -77,6 +76,7 @@ noteRouter
 
   .delete((req, res, next) => {
     const { note_id } = req.params;
+    console.log(note_id);
     NotesService.deleteNote(req.app.get("db"), note_id)
       .then((numRowsAffected) => {
         logger.info(`note with id ${note_id} deleted.`);
@@ -86,7 +86,6 @@ noteRouter
   })
 
   .patch(bodyParser, (req, res, next) => {
-    console.log(req.body);
     const { title, notepad, description } = req.body;
     const noteToUpdate = { title, notepad };
 

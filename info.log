@@ -277,3 +277,43 @@
 {"message":"Cannot read property 'select' of undefined","level":"error"}
 {"message":"Cannot read property 'select' of undefined","level":"error"}
 {"message":"Cannot read property 'select' of undefined","level":"error"}
+{"message":"note with id 49 deleted.","level":"info"}
+{"message":"note with id 55 deleted.","level":"info"}
+{"message":"Cannot read property 'select' of undefined","level":"error"}
+{"message":"note with id 56 created.","level":"info"}
+{"message":"select * from \"notes\" where \"id\" = $1 limit $2 - invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"note with id 56 deleted.","level":"info"}
+{"message":"note with id 56 not found.","level":"error"}
+{"message":"note with id 57 created.","level":"info"}
+{"message":"select * from \"notes\" where \"id\" = $1 limit $2 - invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"note with id 57 deleted.","level":"info"}
+{"message":"note with id 57 not found.","level":"error"}
+{"message":"note with id 58 created.","level":"info"}
+{"message":"select * from \"notes\" where \"id\" = $1 limit $2 - invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"note with id 58 deleted.","level":"info"}
+{"message":"note with id 59 created.","level":"info"}
+{"message":"select * from \"notes\" where \"id\" = $1 limit $2 - invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"note with id 60 created.","level":"info"}
+{"message":"note with id 59 deleted.","level":"info"}
+{"message":"note with id 60 deleted.","level":"info"}
+{"message":"note with id 61 created.","level":"info"}
+{"message":"select * from \"notes\" where \"id\" = $1 limit $2 - invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"note with id 61 deleted.","level":"info"}
+{"message":"TodoService is not defined","level":"error"}
+{"message":"knex.from(...).select(...).where(...).and is not a function","level":"error"}
+{"message":"knex.from(...).select(...).where(...).and is not a function","level":"error"}
+{"message":"Undefined binding(s) detected when compiling FIRST. Undefined column(s): [title] query: select * from \"notestodo\" where \"id\" = ? and \"title\" = ? limit ?","level":"error"}
+{"message":"NotesTodoService.getByIdAndTitle is not a function","level":"error"}
+{"message":"serializeTodo is not defined","level":"error"}
+{"message":"serializeNote is not defined","level":"error"}
+{"message":"serializeNote is not defined","level":"error"}
+{"message":"serializeTodo is not defined","level":"error"}
+{"message":"serializeTodo is not defined","level":"error"}
+{"message":"serializeTodo is not defined","level":"error"}
+{"message":"serializeTodo is not defined","level":"error"}
+{"message":"serializeTodo is not defined","level":"error"}
+{"message":"note with id 62 created.","level":"info"}
+{"message":"serializeTodo is not defined","level":"error"}
+{"message":"serializeTodo is not defined","level":"error"}
+{"message":"serializeTodo is not defined","level":"error"}
+{"message":"serializeTodo is not defined","level":"error"}

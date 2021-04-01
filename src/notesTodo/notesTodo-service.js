@@ -1,21 +1,19 @@
 const NotesTodoService = {
   getAllTodo(knex) {
-    console.log("Knexxx");
-    console.log(knex);
     return knex.select("*").from("notestodo");
   },
   getById(knex, id) {
     return knex.from("notestodo").select("*").where("id", id).first();
   },
-  getByIdAndTitle(knex, id, title) {
-    return knex
-      .from("notestodo")
-      .select("*")
-      .where("id", id)
-      .and("title", title)
-      .first();
-  },
-  insertNote(knex, newTodo) {
+  // getByIdAndTitle(knex, id, title) {
+  //   return knex
+  //     .from("notestodo")
+  //     .select("*")
+  //     .where("id", id)
+  //     .andWhere("title", title)
+  //     .first();
+  // },
+  insertTodo(knex, newTodo) {
     return knex
       .insert(newTodo)
       .into("notestodo")
@@ -27,7 +25,8 @@ const NotesTodoService = {
   deleteTodo(knex, id) {
     return knex("notestodo").where({ id }).delete();
   },
-  updateNote(knex, id, newNoteFields) {
+  updateTodo(knex, id, newNoteFields) {
+    console.log("Running update SQL ");
     return knex("notestodo").where({ id }).update(newNoteFields);
   },
 };
