@@ -14,6 +14,7 @@ const NotesTodoService = {
   //     .first();
   // },
   insertTodo(knex, newTodo) {
+    console.log(newTodo);
     return knex
       .insert(newTodo)
       .into("notestodo")

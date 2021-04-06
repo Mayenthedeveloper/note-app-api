@@ -317,3 +317,135 @@
 {"message":"serializeTodo is not defined","level":"error"}
 {"message":"serializeTodo is not defined","level":"error"}
 {"message":"serializeTodo is not defined","level":"error"}
+{"message":"note with id 63 created.","level":"info"}
+{"message":"note with id 63 deleted.","level":"info"}
+{"message":"note with id 64 created.","level":"info"}
+{"message":"note with id 65 created.","level":"info"}
+{"message":"note with id 66 created.","level":"info"}
+{"message":"note with id 67 created.","level":"info"}
+{"message":"note with id 68 created.","level":"info"}
+{"message":"note with id 69 created.","level":"info"}
+{"message":"note with id 70 created.","level":"info"}
+{"message":"note with id 71 created.","level":"info"}
+{"message":"note with id 62 deleted.","level":"info"}
+{"message":"select * from \"notes\" where \"id\" = $1 limit $2 - invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"select * from \"notes\" where \"id\" = $1 limit $2 - invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"select * from \"notes\" where \"id\" = $1 limit $2 - invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"select * from \"notes\" where \"id\" = $1 limit $2 - invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"select * from \"notes\" where \"id\" = $1 limit $2 - invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"select * from \"notes\" where \"id\" = $1 limit $2 - invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"select * from \"notes\" where \"id\" = $1 limit $2 - invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"select * from \"notes\" where \"id\" = $1 limit $2 - invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"select * from \"notes\" where \"id\" = $1 limit $2 - invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"select * from \"notes\" where \"id\" = $1 limit $2 - invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"select * from \"notes\" where \"id\" = $1 limit $2 - invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"select * from \"notes\" where \"id\" = $1 limit $2 - invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"select * from \"notes\" where \"id\" = $1 limit $2 - invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"select * from \"notes\" where \"id\" = $1 limit $2 - invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"select * from \"notes\" where \"id\" = $1 limit $2 - invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"select * from \"notes\" where \"id\" = $1 limit $2 - invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"note with id 64 deleted.","level":"info"}
+{"message":"note with id 65 deleted.","level":"info"}
+{"message":"note with id 66 deleted.","level":"info"}
+{"message":"note with id 67 deleted.","level":"info"}
+{"message":"note with id 68 deleted.","level":"info"}
+{"message":"note with id 69 deleted.","level":"info"}
+{"message":"note with id 70 deleted.","level":"info"}
+{"message":"note with id 71 deleted.","level":"info"}
+{"message":"note with id 72 created.","level":"info"}
+{"message":"note with id 73 created.","level":"info"}
+{"message":"note with id 74 created.","level":"info"}
+{"message":"note with id 72 deleted.","level":"info"}
+{"message":"note with id 73 deleted.","level":"info"}
+{"message":"note with id 74 deleted.","level":"info"}
+{"message":"note with id 75 created.","level":"info"}
+{"message":"select * from \"notes\" where \"id\" = $1 limit $2 - invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"select * from \"notes\" where \"id\" = $1 limit $2 - invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"select * from \"notes\" where \"id\" = $1 limit $2 - invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"title is required","level":"error"}
+{"message":"note with id 76 created.","level":"info"}
+{"message":"note with id 77 created.","level":"info"}
+{"message":"note with id 78 created.","level":"info"}
+{"message":"note with id 79 created.","level":"info"}
+{"message":"note with id 80 created.","level":"info"}
+{"message":"note with id 81 created.","level":"info"}
+{"message":"note with id 75 deleted.","level":"info"}
+{"message":"note with id 76 deleted.","level":"info"}
+{"message":"note with id 77 deleted.","level":"info"}
+{"message":"note with id 78 deleted.","level":"info"}
+{"message":"note with id 79 deleted.","level":"info"}
+{"message":"note with id 80 deleted.","level":"info"}
+{"message":"note with id 81 deleted.","level":"info"}
+{"message":"serializeTodo is not defined","level":"error"}
+{"message":"note with id 82 created.","level":"info"}
+{"message":"select * from \"notes\" where \"id\" = $1 limit $2 - invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"select * from \"notes\" where \"id\" = $1 limit $2 - invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"select * from \"notes\" where \"id\" = $1 limit $2 - invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"serializeTodo is not defined","level":"error"}
+{"message":"serializeTodo is not defined","level":"error"}
+{"message":"note with id 83 created.","level":"info"}
+{"message":"note with id 84 created.","level":"info"}
+{"message":"note with id 85 created.","level":"info"}
+{"message":"note with id 86 created.","level":"info"}
+{"message":"note with id 87 created.","level":"info"}
+{"message":"note with id 85 deleted.","level":"info"}
+{"message":"note with id 86 deleted.","level":"info"}
+{"message":"note with id 87 deleted.","level":"info"}
+{"message":"note with id 82 deleted.","level":"info"}
+{"message":"note with id 83 deleted.","level":"info"}
+{"message":"note with id 84 deleted.","level":"info"}
+{"message":"note with id 88 created.","level":"info"}
+{"message":"note with id 89 created.","level":"info"}
+{"message":"note with id 90 created.","level":"info"}
+{"message":"note with id 88 deleted.","level":"info"}
+{"message":"note with id 90 deleted.","level":"info"}
+{"message":"note with id 89 deleted.","level":"info"}
+{"message":"note with id 91 created.","level":"info"}
+{"message":"note with id 92 created.","level":"info"}
+{"message":"note with id 92 deleted.","level":"info"}
+{"message":"note with id 91 deleted.","level":"info"}
+{"message":"note with id 93 created.","level":"info"}
+{"message":"insert into \"notestodo\" (\"completed\", \"title\", \"todo\") values ($1, $2, $3) returning * - invalid input syntax for type boolean: \"\"","level":"error"}
+{"message":"insert into \"notestodo\" (\"completed\", \"title\", \"todo\") values ($1, $2, $3) returning * - invalid input syntax for type boolean: \"\"","level":"error"}
+{"message":"insert into \"notestodo\" (\"completed\", \"title\", \"todo\") values ($1, $2, $3) returning * - invalid input syntax for type boolean: \"\"","level":"error"}
+{"message":"insert into \"notestodo\" (\"completed\", \"title\", \"todo\") values ($1, $2, $3) returning * - invalid input syntax for type boolean: \"\"","level":"error"}
+{"message":"insert into \"notestodo\" (\"completed\", \"title\", \"todo\") values ($1, $2, $3) returning * - invalid input syntax for type boolean: \"\"","level":"error"}
+{"message":"insert into \"notestodo\" (\"completed\", \"title\", \"todo\") values ($1, $2, $3) returning * - invalid input syntax for type boolean: \"\"","level":"error"}
+{"message":"note with id 94 created.","level":"info"}
+{"message":"insert into \"notestodo\" (\"completed\", \"title\", \"todo\") values ($1, $2, $3) returning * - invalid input syntax for type boolean: \"\"","level":"error"}
+{"message":"insert into \"notestodo\" (\"completed\", \"title\", \"todo\") values ($1, $2, $3) returning * - invalid input syntax for type boolean: \"\"","level":"error"}
+{"message":"note with id 95 created.","level":"info"}
+{"message":"insert into \"notestodo\" (\"completed\", \"title\", \"todo\") values ($1, $2, $3) returning * - invalid input syntax for type boolean: \"\"","level":"error"}
+{"message":"insert into \"notestodo\" (\"completed\", \"title\", \"todo\") values ($1, $2, $3) returning * - invalid input syntax for type boolean: \"\"","level":"error"}
+{"message":"insert into \"notestodo\" (\"completed\", \"title\", \"todo\") values ($1, $2, $3) returning * - invalid input syntax for type boolean: \"\"","level":"error"}
+{"message":"insert into \"notestodo\" (\"completed\", \"title\", \"todo\") values ($1, $2, $3) returning * - invalid input syntax for type boolean: \"\"","level":"error"}
+{"message":"insert into \"notestodo\" (\"completed\", \"title\", \"todo\") values ($1, $2, $3) returning * - invalid input syntax for type boolean: \"\"","level":"error"}
+{"message":"insert into \"notestodo\" (\"completed\", \"title\", \"todo\") values ($1, $2, $3) returning * - invalid input syntax for type boolean: \"\"","level":"error"}
+{"message":"insert into \"notestodo\" (\"completed\", \"title\", \"todo\") values ($1, $2, $3) returning * - invalid input syntax for type boolean: \"\"","level":"error"}
+{"message":"insert into \"notestodo\" (\"completed\", \"title\", \"todo\") values ($1, $2, $3) returning * - invalid input syntax for type boolean: \"\"","level":"error"}
+{"message":"insert into \"notestodo\" (\"completed\", \"title\", \"todo\") values ($1, $2, $3) returning * - invalid input syntax for type boolean: \"\"","level":"error"}
+{"message":"insert into \"notestodo\" (\"completed\", \"title\", \"todo\") values ($1, $2, $3) returning * - invalid input syntax for type boolean: \"\"","level":"error"}
+{"message":"insert into \"notestodo\" (\"completed\", \"title\", \"todo\") values ($1, $2, $3) returning * - invalid input syntax for type boolean: \"\"","level":"error"}
+{"message":"insert into \"notestodo\" (\"completed\", \"title\", \"todo\") values ($1, $2, $3) returning * - invalid input syntax for type boolean: \"\"","level":"error"}
+{"message":"insert into \"notestodo\" (\"completed\", \"title\", \"todo\") values ($1, $2, $3) returning * - invalid input syntax for type boolean: \"\"","level":"error"}
+{"message":"insert into \"notestodo\" (\"completed\", \"title\", \"todo\") values ($1, $2, $3) returning * - invalid input syntax for type boolean: \"\"","level":"error"}
+{"message":"note with id 93 deleted.","level":"info"}
+{"message":"note with id 94 deleted.","level":"info"}
+{"message":"note with id 95 deleted.","level":"info"}
+{"message":"note with id 96 created.","level":"info"}
+{"message":"insert into \"notestodo\" (\"completed\", \"title\", \"todo\") values ($1, $2, $3) returning * - invalid input syntax for type boolean: \"\"","level":"error"}
+{"message":"insert into \"notestodo\" (\"completed\", \"title\", \"todo\") values ($1, $2, $3) returning * - invalid input syntax for type boolean: \"\"","level":"error"}
+{"message":"insert into \"notestodo\" (\"completed\", \"title\", \"todo\") values ($1, $2, $3) returning * - invalid input syntax for type boolean: \"\"","level":"error"}
+{"message":"insert into \"notestodo\" (\"completed\", \"title\", \"todo\") values ($1, $2, $3) returning * - invalid input syntax for type boolean: \"\"","level":"error"}
+{"message":"insert into \"notestodo\" (\"completed\", \"title\", \"todo\") values ($1, $2, $3) returning * - invalid input syntax for type boolean: \"\"","level":"error"}
+{"message":"serializeTodo is not defined","level":"error"}
+{"message":"serializeTodo is not defined","level":"error"}
+{"message":"note with id 96 deleted.","level":"info"}
+{"message":"serializeTodo is not defined","level":"error"}
+{"message":"serializeTodo is not defined","level":"error"}
+{"message":"serializeTodo is not defined","level":"error"}
+{"message":"serializeTodo is not defined","level":"error"}
+{"message":"serializeTodo is not defined","level":"error"}
+{"message":"serializeTodo is not defined","level":"error"}
+{"message":"serializeTodo is not defined","level":"error"}
+{"message":"serializeTodo is not defined","level":"error"}
