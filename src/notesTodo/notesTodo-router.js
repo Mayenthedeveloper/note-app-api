@@ -92,7 +92,7 @@ notesTodoRouter
       todoToUpdate
     )
       .then((updatedTodo) => {
-        res.status(200).json(serializeTodo(updatedTodo[0]));
+        res.status(200).json(serializeNote(updatedTodo));
       })
       .catch(next);
   });
