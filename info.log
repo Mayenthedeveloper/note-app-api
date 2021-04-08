@@ -477,3 +477,23 @@
 {"message":"Cannot read property 'id' of undefined","level":"error"}
 {"message":"Cannot read property 'id' of undefined","level":"error"}
 {"message":"Cannot read property 'id' of undefined","level":"error"}
+{"message":"note with id 99 created.","level":"info"}
+{"message":"select * from \"notes\" where \"id\" = $1 limit $2 - invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"note with id 99 deleted.","level":"info"}
+{"message":"note with id 100 created.","level":"info"}
+{"message":"note with id 101 created.","level":"info"}
+{"message":"select * from \"notes\" where \"id\" = $1 limit $2 - invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"note with id 101 deleted.","level":"info"}
+{"message":"note with id 100 deleted.","level":"info"}
+{"message":"note with id 102 created.","level":"info"}
+{"message":"note with id 102 deleted.","level":"info"}
+{"message":"note with id 103 created.","level":"info"}
+{"message":"note with id 103 deleted.","level":"info"}
+{"message":"note with id 104 created.","level":"info"}
+{"message":"select * from \"notes\" where \"id\" = $1 limit $2 - invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"select * from \"notes\" where \"id\" = $1 limit $2 - invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"select * from \"notes\" where \"id\" = $1 limit $2 - invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"select * from \"notes\" where \"id\" = $1 limit $2 - invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"select * from \"notes\" where \"id\" = $1 limit $2 - invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"note with id 104 deleted.","level":"info"}
+{"message":"note with id 105 created.","level":"info"}

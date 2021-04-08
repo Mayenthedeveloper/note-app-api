@@ -28,7 +28,8 @@ const NotesTodoService = {
   },
   updateTodo(knex, id, newNoteFields) {
     console.log("Running update SQL ");
-    return knex("notestodo").where({ id }).update(newNoteFields);
+    console.log(newNoteFields);
+    return knex("notestodo").where("id", id).update(newNoteFields);
   },
 };
 

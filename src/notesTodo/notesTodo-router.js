@@ -79,6 +79,7 @@ notesTodoRouter
     const { title, completed, todo } = req.body;
     const todoToUpdate = { title, completed, todo };
     const numberOfValues = Object.values(todoToUpdate).filter(Boolean).length;
+    console.log(todoToUpdate);
     if (numberOfValues === 0)
       return res.status(400).json({
         error: {
