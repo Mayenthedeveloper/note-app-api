@@ -87,9 +87,9 @@ describe("Notes Endpoints", () => {
     });
   });
 
-  describe.only("GET /api/notes/:id", () => {
+  describe("GET /api/notes/:id", () => {
     context(`Given no notes`, () => {
-      it.only(`responds 404 whe note doesn't exist`, () => {
+      it(`responds 404 whe note doesn't exist`, () => {
         return supertest(app)
           .get(`/api/notes/123`)
 
@@ -124,7 +124,7 @@ describe("Notes Endpoints", () => {
           .delete(`/api/notes/123`)
 
           .expect(404, {
-            error: { message: `note Not Found` },
+            error: { message: `Note Not Found` },
           });
       });
     });
@@ -141,12 +141,12 @@ describe("Notes Endpoints", () => {
         const expectedNotes = testNotes.filter((bm) => bm.id !== idToRemove);
         return supertest(app)
           .delete(`/api/notes/${idToRemove}`)
-          .set("Authorization", `Bearer ${process.env.API_TOKEN}`)
+
           .expect(204)
           .then(() =>
             supertest(app)
               .get(`/api/notes`)
-              .set("Authorization", `Bearer ${process.env.API_TOKEN}`)
+
               .expect(expectedNotes)
           );
       });
@@ -154,7 +154,7 @@ describe("Notes Endpoints", () => {
   });
 
   describe("POST /api/notes", () => {
-    ["title", "notepad", "rating"].forEach((field) => {
+    ["title", "notepad"].forEach((field) => {
       const newNote = {
         title: "test-title",
         notepad: "test",
@@ -165,40 +165,12 @@ describe("Notes Endpoints", () => {
 
         return supertest(app)
           .post(`/api/notes`)
-          .send(newBookmark)
-          .set("Authorization", `Bearer ${process.env.API_TOKEN}`)
+          .send(newNote)
+
           .expect(400, {
             error: { message: `'${field}' is required` },
           });
       });
-    });
-
-    it(`responds with 400 invalid 'rating' if not between 0 and 5`, () => {
-      const newNoteInvalidRating = {
-        title: "test-title",
-        notepad: "notesss",
-      };
-      return supertest(app)
-        .post(`/api/notes`)
-        .send(newNoteInvalidRating)
-        .set("Authorization", `Bearer ${process.env.API_TOKEN}`)
-        .expect(400, {
-          error: { message: `'rating' must be a number between 0 and 5` },
-        });
-    });
-
-    it(`responds with 400 invalid 'notepad' if not a valid notepad`, () => {
-      const newNoteInvalidUrl = {
-        title: "test-title",
-        notepad: "notepad invalid",
-      };
-      return supertest(app)
-        .post(`/api/notes`)
-        .send(newNoteInvalidUrl)
-        .set("Authorization", `Bearer ${process.env.API_TOKEN}`)
-        .expect(400, {
-          error: { message: `'notepad' must be a valid notepad` },
-        });
     });
 
     it("adds a new note to the store", () => {
@@ -209,8 +181,8 @@ describe("Notes Endpoints", () => {
       };
       return supertest(app)
         .post(`/api/notes`)
-        .send(newBookmark)
-        .set("Authorization", `Bearer ${process.env.API_TOKEN}`)
+        .send(newNote)
+
         .expect(201)
         .expect((res) => {
           expect(res.body.title).to.eql(newNote.title);
@@ -222,22 +194,9 @@ describe("Notes Endpoints", () => {
         .then((res) =>
           supertest(app)
             .get(`/api/notes/${res.body.id}`)
-            .set("Authorization", `Bearer ${process.env.API_TOKEN}`)
+
             .expect(res.body)
         );
-    });
-
-    it("removes XSS attack content from response", () => {
-      const { maliciousNote, expectedNote } = fixtures.makeMaliciousBookmark();
-      return supertest(app)
-        .post(`/api/notes`)
-        .send(maliciousNote)
-        .set("Authorization", `Bearer ${process.env.API_TOKEN}`)
-        .expect(201)
-        .expect((res) => {
-          expect(res.body.title).to.eql(expectedNote.title);
-          expect(res.body.description).to.eql(expectedNote.description);
-        });
     });
   });
 
@@ -247,8 +206,8 @@ describe("Notes Endpoints", () => {
         const noteId = 123456;
         return supertest(app)
           .patch(`/api/notes/${noteId}`)
-          .set("Authorization", `Bearer ${process.env.API_TOKEN}`)
-          .expect(404, { error: { message: `note Not Found` } });
+
+          .expect(404, { error: { message: `Note Not Found` } });
       });
     });
 
@@ -272,14 +231,14 @@ describe("Notes Endpoints", () => {
         };
         return supertest(app)
           .patch(`/api/notes/${idToUpdate}`)
-          .set("Authorization", `Bearer ${process.env.API_TOKEN}`)
+
           .send(updateNote)
           .expect(204)
           .then((res) =>
             supertest(app)
               .get(`/api/notes/${idToUpdate}`)
-              .set("Authorization", `Bearer ${process.env.API_TOKEN}`)
-              .expect(expectedArticle)
+
+              .expect(expectedNote)
           );
       });
 
@@ -287,11 +246,11 @@ describe("Notes Endpoints", () => {
         const idToUpdate = 2;
         return supertest(app)
           .patch(`/api/notes/${idToUpdate}`)
-          .set("Authorization", `Bearer ${process.env.API_TOKEN}`)
+
           .send({ irrelevantField: "foo" })
           .expect(400, {
             error: {
-              message: `Request body must content either 'title', 'notepad', 'description' or 'rating'`,
+              message: `Request body must content either 'title', 'notepad', 'description'`,
             },
           });
       });
@@ -308,7 +267,7 @@ describe("Notes Endpoints", () => {
 
         return supertest(app)
           .patch(`/api/notes/${idToUpdate}`)
-          .set("Authorization", `Bearer ${process.env.API_TOKEN}`)
+
           .send({
             ...updateNote,
             fieldToIgnore: "should not be in GET response",
@@ -317,41 +276,9 @@ describe("Notes Endpoints", () => {
           .then((res) =>
             supertest(app)
               .get(`/api/notes/${idToUpdate}`)
-              .set("Authorization", `Bearer ${process.env.API_TOKEN}`)
+
               .expect(expectedNote)
           );
-      });
-
-      it(`responds with 400 invalid 'rating' if not between 0 and 5`, () => {
-        const idToUpdate = 2;
-        const updateInvalidRating = {
-          rating: "invalid",
-        };
-        return supertest(app)
-          .patch(`/api/notes/${idToUpdate}`)
-          .set("Authorization", `Bearer ${process.env.API_TOKEN}`)
-          .send(updateInvalidRating)
-          .expect(400, {
-            error: {
-              message: `'rating' must be a number between 0 and 5`,
-            },
-          });
-      });
-
-      it(`responds with 400 invalid 'notepad' if not a valid notepad`, () => {
-        const idToUpdate = 2;
-        const updateInvalidUrl = {
-          notepad: "notepad12",
-        };
-        return supertest(app)
-          .patch(`/api/notes/${idToUpdate}`)
-          .set("Authorization", `Bearer ${process.env.API_TOKEN}`)
-          .send(updateInvalidUrl)
-          .expect(400, {
-            error: {
-              message: `'notepad' must be a valid notepad`,
-            },
-          });
       });
     });
   });

@@ -25,10 +25,8 @@ noteRouter
   .route("/")
 
   .get((req, res, next) => {
-    console.log("Calling get all notes");
     NotesService.getAllNotes(req.app.get("db"))
       .then((notes) => {
-        console.log(notes);
         res.json(notes.map(serializeNote));
       })
       .catch(next);
@@ -84,7 +82,7 @@ noteRouter
 
   .delete((req, res, next) => {
     const { note_id } = req.params;
-    console.log(note_id);
+
     NotesService.deleteNote(req.app.get("db"), note_id)
       .then((numRowsAffected) => {
         logger.info(`note with id ${note_id} deleted.`);
@@ -102,15 +100,13 @@ noteRouter
       logger.error(`Invalid update without required fields`);
       return res.status(400).json({
         error: {
-          message: `Request body must content either 'title', 'note', 'description'`,
+          message: `Request body must content either 'title', 'notepad', 'description'`,
         },
       });
     }
-    console.log("OK");
 
     NotesService.updateNote(req.app.get("db"), req.params.note_id, noteToUpdate)
       .then((numRowsAffected) => {
-        console.log(numRowsAffected);
         res.status(200).end();
       })
       .catch(next);

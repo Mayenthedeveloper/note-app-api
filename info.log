@@ -576,3 +576,58 @@
 {"message":"Cannot read property 'select' of undefined","level":"error"}
 {"message":"note with id 123 not found.","level":"error"}
 {"message":"note with id 123 not found.","level":"error"}
+{"message":"note with id 123 not found.","level":"error"}
+{"message":"note with id 123 not found.","level":"error"}
+{"message":"note with id 2 deleted.","level":"info"}
+{"message":"note with id 2 deleted.","level":"info"}
+{"message":"note with id 2 deleted.","level":"info"}
+{"message":"title is required","level":"error"}
+{"message":"notepad is required","level":"error"}
+{"message":"note with id 1 created.","level":"info"}
+{"message":"title is required","level":"error"}
+{"message":"notepad is required","level":"error"}
+{"message":"note with id 1 created.","level":"info"}
+{"message":"note with id 123456 not found.","level":"error"}
+{"message":"Invalid update without required fields","level":"error"}
+{"message":"Invalid update without required fields","level":"error"}
+{"message":"Invalid update without required fields","level":"error"}
+{"message":"note with id 123 not found.","level":"error"}
+{"message":"note with id 123 not found.","level":"error"}
+{"message":"note with id 2 deleted.","level":"info"}
+{"message":"title is required","level":"error"}
+{"message":"notepad is required","level":"error"}
+{"message":"note with id 1 created.","level":"info"}
+{"message":"note with id 123456 not found.","level":"error"}
+{"message":"Invalid update without required fields","level":"error"}
+{"message":"note with id 123 not found.","level":"error"}
+{"message":"note with id 123 not found.","level":"error"}
+{"message":"note with id 2 deleted.","level":"info"}
+{"message":"title is required","level":"error"}
+{"message":"notepad is required","level":"error"}
+{"message":"note with id 1 created.","level":"info"}
+{"message":"note with id 123456 not found.","level":"error"}
+{"message":"Invalid update without required fields","level":"error"}
+{"message":"note with id 123 not found.","level":"error"}
+{"message":"note with id 123 not found.","level":"error"}
+{"message":"note with id 2 deleted.","level":"info"}
+{"message":"title is required","level":"error"}
+{"message":"notepad is required","level":"error"}
+{"message":"note with id 1 created.","level":"info"}
+{"message":"note with id 123456 not found.","level":"error"}
+{"message":"Invalid update without required fields","level":"error"}
+{"message":"note with id 123 not found.","level":"error"}
+{"message":"note with id 123 not found.","level":"error"}
+{"message":"note with id 2 deleted.","level":"info"}
+{"message":"title is required","level":"error"}
+{"message":"notepad is required","level":"error"}
+{"message":"note with id 1 created.","level":"info"}
+{"message":"note with id 123456 not found.","level":"error"}
+{"message":"Invalid update without required fields","level":"error"}
+{"message":"note with id 123 not found.","level":"error"}
+{"message":"note with id 123 not found.","level":"error"}
+{"message":"note with id 2 deleted.","level":"info"}
+{"message":"title is required","level":"error"}
+{"message":"notepad is required","level":"error"}
+{"message":"note with id 1 created.","level":"info"}
+{"message":"note with id 123456 not found.","level":"error"}
+{"message":"Invalid update without required fields","level":"error"}
