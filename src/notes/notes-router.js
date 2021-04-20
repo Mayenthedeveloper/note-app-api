@@ -3,9 +3,16 @@ const express = require("express");
 const xss = require("xss");
 const logger = require("../logger");
 const NotesService = require("./notes-service");
+const knex = require("knex");
+const { TEST_DB_URL } = require("../config");
 
 const noteRouter = express.Router();
 const bodyParser = express.json();
+
+const db = knex({
+  client: "pg",
+  connection: TEST_DB_URL,
+});
 
 const serializeNote = (note) => ({
   id: note.id,
@@ -18,9 +25,10 @@ noteRouter
   .route("/")
 
   .get((req, res, next) => {
+    console.log("Calling get all notes");
     NotesService.getAllNotes(req.app.get("db"))
       .then((notes) => {
-        // console.log("All notes");
+        console.log(notes);
         res.json(notes.map(serializeNote));
       })
       .catch(next);
@@ -60,7 +68,7 @@ noteRouter
         if (!note) {
           logger.error(`note with id ${note_id} not found.`);
           return res.status(404).json({
-            error: { message: `note Not Found` },
+            error: { message: `Note Not Found` },
           });
         }
 

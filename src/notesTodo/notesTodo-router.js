@@ -16,7 +16,6 @@ const serializeNote = (todo) => ({
 notesTodoRouter
   .route("/")
   .get((req, res, next) => {
-    console.log("Calling get all");
     NotesTodoService.getAllTodo(req.app.get("db"))
       .then((todos) => {
         res.json(todos.map(serializeNote));
@@ -71,7 +70,8 @@ notesTodoRouter
   .delete((req, res, next) => {
     NotesTodoService.deleteTodo(req.app.get("db"), req.params.todo_id)
       .then((numRowsAffected) => {
-        res.status(204).end();
+        console.log(numRowsAffected);
+        res.status(200).end();
       })
       .catch(next);
   })
@@ -93,6 +93,7 @@ notesTodoRouter
       todoToUpdate
     )
       .then((updatedTodo) => {
+        console.log(updatedTodo);
         res.status(200).json(serializeNote(updatedTodo));
       })
       .catch(next);

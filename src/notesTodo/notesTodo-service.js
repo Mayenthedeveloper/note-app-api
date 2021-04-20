@@ -24,11 +24,11 @@ const NotesTodoService = {
       });
   },
   deleteTodo(knex, id) {
+    console.log("Running delete SQL ");
+    console.log(id);
     return knex("notestodo").where({ id }).delete();
   },
   updateTodo(knex, id, newNoteFields) {
-    console.log("Running update SQL ");
-    console.log(newNoteFields);
     return knex("notestodo").where("id", id).update(newNoteFields);
   },
 };

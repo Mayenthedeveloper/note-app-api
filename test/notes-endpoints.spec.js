@@ -2,16 +2,15 @@ const knex = require("knex");
 const fixtures = require("./notes-fixtures");
 const app = require("../src/app");
 
-console.log(process.env.TEST_DB_URL);
 describe("Notes Endpoints", () => {
-  let db = "test";
+  let db;
 
   before("make knex instance", () => {
     db = knex({
       client: "pg",
       connection: process.env.TEST_DB_URL,
     });
-    // app.set("db", db);
+    app.set("db", db);
   });
 
   // console.log(db);
@@ -22,56 +21,53 @@ describe("Notes Endpoints", () => {
 
   afterEach("cleanup", () => db("notes").truncate());
 
-  describe.only(`Unauthorized requests`, () => {
+  describe(`Unauthorized requests`, () => {
     const testNotes = fixtures.makeNotesArray();
-
+    console.log("Ok til here");
     beforeEach("insert notes", () => {
       return db.into("notes").insert(testNotes);
     });
 
-    it.only(`responds with 401 Unauthorized for GET /api/notes`, () => {
-      return supertest(app)
-        .get("/api/notes")
-        .expect(401, { error: "Unauthorized request" });
-    });
+    // it(`responds with 401 Unauthorized for GET /api/notes`, () => {
+    //   return supertest(app)
+    //     .get("/api/notes")
+    //     .expect(401, { error: "Unauthorized request" });
+    // });
 
-    it(`responds with 401 Unauthorized for POST /api/notes`, () => {
-      return supertest(app)
-        .post("/api/notes")
-        .send({ title: "test-title", notepad: "you there" })
-        .expect(401, { error: "Unauthorized request" });
-    });
+    // it(`responds with 401 Unauthorized for POST /api/notes`, () => {
+    //   return supertest(app)
+    //     .post("/api/notes")
+    //     .send({ title: "test-title", notepad: "you there" })
+    //     .expect(401, { error: "Unauthorized request" });
+    // });
 
-    it(`responds with 401 Unauthorized for GET /api/notes/:id`, () => {
-      const secondNote = testNotes[1];
-      return supertest(app)
-        .get(`/api/notes/${secondNote.id}`)
-        .expect(401, { error: "Unauthorized request" });
-    });
+    // it(`responds with 401 Unauthorized for GET /api/notes/:id`, () => {
+    //   const secondNote = testNotes[1];
+    //   return supertest(app)
+    //     .get(`/api/notes/${secondNote.id}`)
+    //     .expect(401, { error: "Unauthorized request" });
+    // });
 
-    it(`responds with 401 Unauthorized for DELETE /api/notes/:id`, () => {
-      const aNote = testNotes[1];
-      return supertest(app)
-        .delete(`/api/notes/${aNote.id}`)
-        .expect(401, { error: "Unauthorized request" });
-    });
+    // it(`responds with 401 Unauthorized for DELETE /api/notes/:id`, () => {
+    //   const aNote = testNotes[1];
+    //   return supertest(app)
+    //     .delete(`/api/notes/${aNote.id}`)
+    //     .expect(401, { error: "Unauthorized request" });
+    // });
 
-    it(`responds with 401 Unauthorized for PATCH /api/notes/:id`, () => {
-      const aNote = testNotes[1];
-      return supertest(app)
-        .patch(`/api/notes/${aNote.id}`)
-        .send({ title: "updated-title" })
-        .expect(401, { error: "Unauthorized request" });
-    });
+    // it(`responds with 401 Unauthorized for PATCH /api/notes/:id`, () => {
+    //   const aNote = testNotes[1];
+    //   return supertest(app)
+    //     .patch(`/api/notes/${aNote.id}`)
+    //     .send({ title: "updated-title" })
+    //     .expect(401, { error: "Unauthorized request" });
+    // });
   });
 
   describe("GET /api/notes", () => {
     context(`Given no notes`, () => {
       it(`responds with 200 and an empty list`, () => {
-        return supertest(app)
-          .get("/api/notes")
-          .set("Authorization", `Bearer ${process.env.API_TOKEN}`)
-          .expect(200, []);
+        return supertest(app).get("/api/notes").expect(200, []);
       });
     });
 
@@ -85,37 +81,18 @@ describe("Notes Endpoints", () => {
       it("gets the notes from the store", () => {
         return supertest(app)
           .get("/api/notes")
-          .set("Authorization", `Bearer ${process.env.API_TOKEN}`)
+
           .expect(200, testNotes);
-      });
-    });
-
-    context(`Given an XSS attack Note`, () => {
-      const { maliciousNote, expectedNote } = fixtures.makeMaliciousNote();
-
-      beforeEach("insert malicious note", () => {
-        return db.into("notes").insert([maliciousNote]);
-      });
-
-      it("removes XSS attack content", () => {
-        return supertest(app)
-          .get(`/api/notes`)
-          .set("Authorization", `Bearer ${process.env.API_TOKEN}`)
-          .expect(200)
-          .expect((res) => {
-            expect(res.body[0].title).to.eql(expectedNote.title);
-            expect(res.body[0].description).to.eql(expectedNote.description);
-          });
       });
     });
   });
 
-  describe("GET /api/notes/:id", () => {
+  describe.only("GET /api/notes/:id", () => {
     context(`Given no notes`, () => {
-      it(`responds 404 whe note doesn't exist`, () => {
+      it.only(`responds 404 whe note doesn't exist`, () => {
         return supertest(app)
           .get(`/api/notes/123`)
-          .set("Authorization", `Bearer ${process.env.API_TOKEN}`)
+
           .expect(404, {
             error: { message: `Note Not Found` },
           });
@@ -134,27 +111,8 @@ describe("Notes Endpoints", () => {
         const expectedNote = testNotes[noteId - 1];
         return supertest(app)
           .get(`/api/notes/${noteId}`)
-          .set("Authorization", `Bearer ${process.env.API_TOKEN}`)
+
           .expect(200, expectedNote);
-      });
-    });
-
-    context(`Given an XSS attack note`, () => {
-      const { maliciousNote, expectedNote } = fixtures.makeMaliciousNote();
-
-      beforeEach("insert malicious note", () => {
-        return db.into("notes").insert([maliciousNote]);
-      });
-
-      it("removes XSS attack content", () => {
-        return supertest(app)
-          .get(`/api/notes/${maliciousNote.id}`)
-          .set("Authorization", `Bearer ${process.env.API_TOKEN}`)
-          .expect(200)
-          .expect((res) => {
-            expect(res.body.title).to.eql(expectedNote.title);
-            expect(res.body.description).to.eql(expectedNote.description);
-          });
       });
     });
   });
@@ -164,7 +122,7 @@ describe("Notes Endpoints", () => {
       it(`responds 404 whe note doesn't exist`, () => {
         return supertest(app)
           .delete(`/api/notes/123`)
-          .set("Authorization", `Bearer ${process.env.API_TOKEN}`)
+
           .expect(404, {
             error: { message: `note Not Found` },
           });
