@@ -56,7 +56,7 @@ notesTodoRouter
       .then((todo) => {
         if (!todo) {
           return res.status(404).json({
-            error: { message: `Todo doesn't exist` },
+            error: { message: `Todo Not Found` },
           });
         }
         res.todo = todo;

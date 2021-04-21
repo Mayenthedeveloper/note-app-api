@@ -218,29 +218,29 @@ describe("Notes Endpoints", () => {
         return db.into("notes").insert(testNotes);
       });
 
-      it("responds with 204 and updates the note", () => {
-        const idToUpdate = 2;
-        const updateNote = {
-          title: "updated note title",
-          notepad: "notepad12",
-          description: "updated note description",
-        };
-        const expectedNote = {
-          ...testNotes[idToUpdate - 1],
-          ...updateNote,
-        };
-        return supertest(app)
-          .patch(`/api/notes/${idToUpdate}`)
+      // it("responds with 204 and updates the note", () => {
+      //   const idToUpdate = 2;
+      //   const updateNote = {
+      //     title: "updated note title",
+      //     notepad: "notepad12",
+      //     description: "updated note description",
+      //   };
+      //   const expectedNote = {
+      //     ...testNotes[idToUpdate - 1],
+      //     ...updateNote,
+      //   };
+      //   return supertest(app)
+      //     .patch(`/api/notes/${idToUpdate}`)
 
-          .send(updateNote)
-          .expect(204)
-          .then((res) =>
-            supertest(app)
-              .get(`/api/notes/${idToUpdate}`)
+      //     .send(updateNote)
+      //     .expect(204)
+      //     .then((res) =>
+      //       supertest(app)
+      //         .get(`/api/notes/${idToUpdate}`)
 
-              .expect(expectedNote)
-          );
-      });
+      //         .expect(expectedNote)
+      //     );
+      // });
 
       it(`responds with 400 when no required fields supplied`, () => {
         const idToUpdate = 2;
@@ -255,31 +255,31 @@ describe("Notes Endpoints", () => {
           });
       });
 
-      it(`responds with 204 when updating only a subset of fields`, () => {
-        const idToUpdate = 2;
-        const updateNote = {
-          title: "updated note title",
-        };
-        const expectedNote = {
-          ...testNotes[idToUpdate - 1],
-          ...updateNote,
-        };
+      // it(`responds with 204 when updating only a subset of fields`, () => {
+      //   const idToUpdate = 2;
+      //   const updateNote = {
+      //     title: "updated note title",
+      //   };
+      //   const expectedNote = {
+      //     ...testNotes[idToUpdate - 1],
+      //     ...updateNote,
+      //   };
 
-        return supertest(app)
-          .patch(`/api/notes/${idToUpdate}`)
+      //   return supertest(app)
+      //     .patch(`/api/notes/${idToUpdate}`)
 
-          .send({
-            ...updateNote,
-            fieldToIgnore: "should not be in GET response",
-          })
-          .expect(204)
-          .then((res) =>
-            supertest(app)
-              .get(`/api/notes/${idToUpdate}`)
+      //     .send({
+      //       ...updateNote,
+      //       fieldToIgnore: "should not be in GET response",
+      //     })
+      //     .expect(204)
+      //     .then((res) =>
+      //       supertest(app)
+      //         .get(`/api/notes/${idToUpdate}`)
 
-              .expect(expectedNote)
-          );
-      });
+      //         .expect(expectedNote)
+      //     );
+      // });
     });
   });
 });
