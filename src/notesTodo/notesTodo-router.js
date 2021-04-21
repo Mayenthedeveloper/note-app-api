@@ -29,7 +29,7 @@ notesTodoRouter
     for (const [key, value] of Object.entries(newTodo))
       if (value == null)
         return res.status(400).json({
-          error: { message: `Missing '${key}' in request body` },
+          error: { message: `'${key}' is required` },
         });
 
     newTodo.completed = completed;
@@ -39,7 +39,7 @@ notesTodoRouter
         res
           .status(201)
           .location(path.posix.join(req.originalUrl, `/${todo.id}`))
-          .json(serializeNote(todo));
+          .json(serializeTodo(todo));
       })
       .catch(next);
   });
@@ -70,7 +70,6 @@ notesTodoRouter
   .delete((req, res, next) => {
     NotesTodoService.deleteTodo(req.app.get("db"), req.params.todo_id)
       .then((numRowsAffected) => {
-        console.log(numRowsAffected);
         res.status(200).end();
       })
       .catch(next);
@@ -79,11 +78,11 @@ notesTodoRouter
     const { title, completed, todo } = req.body;
     const todoToUpdate = { title, completed, todo };
     const numberOfValues = Object.values(todoToUpdate).filter(Boolean).length;
-    console.log(todoToUpdate);
+
     if (numberOfValues === 0)
       return res.status(400).json({
         error: {
-          message: `Request body must content either 'todo', 'title' or 'completed'`,
+          message: `Request body must content either 'title', 'todo'`,
         },
       });
 
@@ -93,7 +92,6 @@ notesTodoRouter
       todoToUpdate
     )
       .then((updatedTodo) => {
-        console.log(updatedTodo);
         res.status(200).json(serializeNote(updatedTodo));
       })
       .catch(next);
