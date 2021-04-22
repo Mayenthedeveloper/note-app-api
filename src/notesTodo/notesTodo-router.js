@@ -6,7 +6,7 @@ const NotesTodoService = require("./notesTodo-service");
 const notesTodoRouter = express.Router();
 const jsonParser = express.json();
 
-const serializeNote = (todo) => ({
+const serializeTodo = (todo) => ({
   id: todo.id,
   title: xss(todo.title),
   todo: todo.todo,
@@ -18,7 +18,7 @@ notesTodoRouter
   .get((req, res, next) => {
     NotesTodoService.getAllTodo(req.app.get("db"))
       .then((todos) => {
-        res.json(todos.map(serializeNote));
+        res.json(todos.map(serializeTodo));
       })
       .catch(next);
   })
@@ -92,7 +92,7 @@ notesTodoRouter
       todoToUpdate
     )
       .then((updatedTodo) => {
-        res.status(200).json(serializeNote(updatedTodo));
+        res.status(200).json(serializeTodo(updatedTodo));
       })
       .catch(next);
   });
