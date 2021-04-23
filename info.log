@@ -828,3 +828,11 @@
 {"message":"note with id 1 created.","level":"info"}
 {"message":"note with id 123456 not found.","level":"error"}
 {"message":"Invalid update without required fields","level":"error"}
+{"message":"note with id 174 deleted.","level":"info"}
+{"message":"note with id 175 deleted.","level":"info"}
+{"message":"note with id 176 deleted.","level":"info"}
+{"message":"note with id 177 created.","level":"info"}
+{"message":"note with id 178 created.","level":"info"}
+{"message":"note with id 177 deleted.","level":"info"}
+{"message":"note with id 179 created.","level":"info"}
+{"message":"note with id 178 deleted.","level":"info"}
