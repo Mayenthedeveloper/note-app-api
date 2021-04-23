@@ -4,14 +4,14 @@ const xss = require("xss");
 const logger = require("../logger");
 const NotesService = require("./notes-service");
 const knex = require("knex");
-const { TEST_DB_URL } = require("../config");
+const { TEST_DATABASE_URL } = require("../config");
 
 const noteRouter = express.Router();
 const bodyParser = express.json();
 
 const db = knex({
   client: "pg",
-  connection: TEST_DB_URL,
+  connection: TEST_DATABASE_URL,
 });
 
 const serializeNote = (note) => ({
