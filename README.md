@@ -12,15 +12,21 @@ This API is not open for public use at this time.
 ##  /notes
 | Route                     | Request        |Body             |Result                      |
 |   ----------              |  ----------    |--------------   | --------                   |
-| /products                 | GET            |                 |return all product          |
-| /products/:product_id     | GET            |                 |return product with that ID |
+| /notes                    | GET            |                 |return all notes            |
+| /notes/:note_id           | GET            |                 |return notes with that ID   |
+| /notes/:note_id           | DELETE         |                 |delete notes  with that ID  |
+| /notes/:note_id           | UPDATE         |                 |update notes  with that ID  |
+| /notes                    | POST           | title, notepad  |add notes                   |
 
 
 ##  /todos
 | Route                     | Request        |Body             |Result                      |
 |   ----------              |  ----------    |--------------   | --------                   |
-| /products                 | GET            |                 |return all product          |
-| /products/:product_id     | GET            |                 |return product with that ID |
+| /todos                    | GET            |                 |return all todos            |
+| /todos/:todo_id           | GET            |                 |return todos with that ID   |
+| /notes/:todo_id           | DELETE         |                 |delete todos  with that ID  |
+| /notes/:todo_id           | UPDATE         |                 |update todos  with that ID  |
+| /todos                    | POST           | title, todo     |add todos                   |
 
 
 ## Status codes
